@@ -19,7 +19,7 @@ y_true=tf.placeholder(tf.float32,[None,10])
 y_pred=tf.matmul(x,w)
 
 cross_entropy=tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
-        logits=y_pred,labels=y_true))
+                                        logits=y_pred,labels=y_true))
 gd_step=tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
 
 correct_mask=tf.equal(tf.argmax(y_pred,1),tf.argmax(y_true,1))
@@ -33,4 +33,6 @@ with tf.Session() as sess:
         sess.run(gd_step,feed_dict={x:batch_xs,y_true:batch_ys})
     ans=sess.run(accuracy,feed_dict={x:data.test.images,
                                      y_true:data.test.labels})
+
+
 print (ans)
