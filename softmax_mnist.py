@@ -1,6 +1,6 @@
 # 2019.10.13
 """
-author:Tzhuo
+Book: Learning TensorFlow
 """
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
